@@ -45,6 +45,9 @@ This theme is licensed under the [GNU General Public License](http://www.gnu.org
 
 ## Changelog:
 
+### 1.0.0
+* Update HC 2.0.2 and tamatebako 1.2.2
+
 ### 0.1.1
 * Various Bug fix.
 
