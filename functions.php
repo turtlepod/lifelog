@@ -115,4 +115,4 @@ function lifelog_custom_header_admin_head_cb(){
 </style><?php
 }
 
-do_action( 'lifelog_after_theme_setup' );
+do_action( 'lifelog_after_setup_theme' );

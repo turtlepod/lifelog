@@ -30,11 +30,10 @@ LifeLog is using editor style, so you'll see what you get in your WordPress visu
 
 You can translate using provided po and mo file.
 
-
 ### Links
 
 * [Github project page](https://github.com/turtlepod/lifelog)
-* [Theme page](http://shellcreeper.com/portfolio/wordpress-theme/lifelog-wordpress-theme/)
+* [Theme page](http://genbutheme.com/themes/lifelog/)
 * Need a custom theme or plugin for your WordPress website? [I can help](http://shellcreeper.com/services/).
 
 ## Copyright & license
