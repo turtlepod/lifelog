@@ -6,11 +6,6 @@
 /* Load Library. */
 require_once( trailingslashit( get_template_directory() ) . 'library/tamatebako.php' );
 
-/* Load External Library. */
-if( ! function_exists( 'get_the_image' ) ){
-	tamatebako_include( 'includes/get-the-image' );
-}
-
 /* Load theme general setup */
 add_action( 'after_setup_theme', 'lifelog_setup', 5 );
 
@@ -41,8 +36,14 @@ function lifelog_setup(){
 	/* === SETUP: Sidebars, Menus, Image Sizes, Content Width === */
 	tamatebako_include( 'includes/setup' );
 
+	/* === HEADER IMAGE === */
+	tamatebako_include( 'includes/header-image' );
+
 	/* === LAYOUTS === */
 	tamatebako_include( 'includes/layouts' );
+
+	/* === POST FORMATS === */
+	tamatebako_include( 'includes/post-formats' );
 
 	/* === UTILITY: Mobile View, Custom CSS === */
 	tamatebako_include( 'includes/utility' );

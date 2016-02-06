@@ -6,7 +6,7 @@
 /* === EDITOR STYLE === */
 
 $editor_css = array(
-	tamatebako_google_fonts_url( array( 'Open Sans' => '400,400italic,700,700italic,800,800italic' ) ),
+	tamatebako_google_fonts_url( array( 'Open Sans' => '300,300italic,400,400italic,700,700italic,800,800italic' ) ),
 	'assets/css/editor.css',
 );
 add_editor_style( $editor_css );
@@ -58,7 +58,7 @@ function press_start_register_scripts(){
 	/* === CSS === */
 
 	/* Google Fonts */
-	wp_register_style( "{$name}-google-fonts", tamatebako_google_fonts_url( array( 'Open Sans' => '400,400italic,700,700italic,800,800italic' ) ) );
+	wp_register_style( "{$name}-google-fonts", tamatebako_google_fonts_url( array( 'Open Sans' => '300,300italic,400,400italic,700,700italic,800,800italic' ) ) );
 
 	/* Theme Debug */
 	wp_register_style( "{$name}-debug", tamatebako_theme_file( "assets/css/base/debug", "css" ), array() );
