@@ -1,9 +1,9 @@
-<article <?php hybrid_attr( 'post' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="entry-wrap">
 
 		<header class="entry-header">
-			<?php the_title( '<h1 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h1>' ); ?>
+			<?php tamatebako_entry_title(); ?>
 		</header><!-- .entry-header -->
 
 		<div class="entry-content">
@@ -13,7 +13,7 @@
 
 		<footer class="entry-footer">
 			<?php edit_post_link(); ?>
-			<?php tamatebako_entry_terms(); ?>
+			<?php tamatebako_entry_taxonomies(); ?>
 		</footer><!-- .entry-footer -->
 
 	</div><!-- .entry-wrap -->

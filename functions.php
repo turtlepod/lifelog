@@ -3,116 +3,50 @@
  * Theme Functions
 ** ---------------------------- */
 
-/* Load text string used in theme */
-require_once( trailingslashit( get_template_directory() ) . 'includes/string.php' );
+/* Load Library. */
+require_once( trailingslashit( get_template_directory() ) . 'library/tamatebako.php' );
 
-/* Load base theme functionality. */
-require_once( trailingslashit( get_template_directory() ) . 'includes/tamatebako.php' );
+/* Load External Library. */
+if( ! function_exists( 'get_the_image' ) ){
+	tamatebako_include( 'includes/get-the-image' );
+}
 
 /* Load theme general setup */
-add_action( 'after_setup_theme', 'lifelog_setup' );
+add_action( 'after_setup_theme', 'lifelog_setup', 5 );
 
 /**
- * General Setup
- * @since 0.1.0
+ * Setup
  */
 function lifelog_setup(){
 
-	/* === DEBUG === */
-	$debug_args = array(
-		'mobile'         => 0,
-		'no-js'          => 0,
-		'media-queries'  => 1,
+	/* === MINIMUM SYSTEM REQ === */
+	$back_compat_args = array(
+		'theme_name'   => 'LifeLog',
+		'wp_requires'  => '4.1.0',
+		'php_requires' => '5.2.4',
 	);
-	//add_theme_support( 'tamatebako-debug', $debug_args );
+	add_theme_support( 'tamatebako-back-compat', $back_compat_args );
+	if( ! tamatebako_minimum_requirement( $back_compat_args ) ) return;
 
-	/* === Post Formats === */
-	$post_formats_args = array(
-		'aside',
-		'image',
-		'gallery',
-		'link',
-		'quote',
-		'status',
-		'video',
-		'audio',
-		'chat'
-	);
-	add_theme_support( 'post-formats', $post_formats_args );
+	/* === DEPRECATED FUNCTIONS === */
+	//tamatebako_include( 'includes/deprecated/deprecated-hybrid-core' );
+	//tamatebako_include( 'includes/deprecated/deprecated-tamatebako' );
 
-	/* Remove Infinity */
-	remove_filter( 'hybrid_aside_infinity', 'tamatebako_aside_infinity' );
+	/* === TRANSLATION === */
+	tamatebako_include( 'includes/translation' );
 
-	/* === Theme Layouts === */
-	$layouts = array(
-		/* One Column */
-		'content' => 'Content',
-	);
-	$layouts_args = array(
-		'default'   => 'content',
-		'customize' => false,
-		'post_meta' => false,
-	);
-	add_theme_support( 'theme-layouts', $layouts, $layouts_args );
+	/* === SCRIPTS === */
+	tamatebako_include( 'includes/scripts' );
 
-	/* === Register Menus === */
-	$menus_args = array(
-		"primary" => lifelog_string( 'menu-primary-name' ),
-	);
-	add_theme_support( 'tamatebako-menus', $menus_args );
+	/* === SETUP: Sidebars, Menus, Image Sizes, Content Width === */
+	tamatebako_include( 'includes/setup' );
 
-	/* Custom Header */
-	$header_args = array(
-		'width'                  => 160,
-		'height'                 => 160,
-		'admin-head-callback'    => 'lifelog_custom_header_admin_head_cb',
-		'header-text'            => false,
-	);
-	add_theme_support( 'custom-header', $header_args );
+	/* === LAYOUTS === */
+	tamatebako_include( 'includes/layouts' );
 
-	/* === Load Stylesheet === */
-	$style_args = array(
-		'theme-open-sans-font',
-		'dashicons',
-		'theme-reset',
-		'theme-menus',
-		'parent',
-		'style',
-		'media-queries'
-	);
-	add_theme_support( 'hybrid-core-styles', $style_args );
+	/* === UTILITY: Mobile View, Custom CSS === */
+	tamatebako_include( 'includes/utility' );
 
-	/* === Editor Style === */
-	$editor_css = array(
-		'css/reset.min.css',
-		'style.css',
-		tamatebako_google_open_sans_font_url()
-	);
-	add_editor_style( $editor_css );
-
-	/* === Customizer Mobile View === */
-	add_theme_support( 'tamatebako-customize-mobile-view' );
-
-	/* === Set Content Width === */
-	hybrid_set_content_width( 650 );
 }
 
-
-/**
- * Custom Header Admin CB
- * @since 0.1.0
- */
-function lifelog_custom_header_admin_head_cb(){
-?><style type="text/css" id="lifelog-admin-header-preview-css">
-	.appearance_page_custom-header .available-headers label img{
-		width: 50px;
-		height: 50px;
-		border-radius: 50%;
-	}
-	.appearance_page_custom-header #headimg{
-		border-radius: 50%;
-	}
-</style><?php
-}
-
-do_action( 'lifelog_after_setup_theme' );
+do_action( 'tamatebako_after_setup' );
