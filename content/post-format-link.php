@@ -1,9 +1,9 @@
-<article <?php hybrid_attr( 'post' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="entry-wrap">
 
 		<div class="entry-published-wrap">
-			<time <?php hybrid_attr( 'entry-published' ); ?>>
+			<time class="entry-published">
 				<span class="day-large"><?php echo get_the_date( 'D' ); ?></span>
 				<span class="time-box">
 					<?php echo get_the_date( 'M' ); ?><br/>
@@ -19,14 +19,13 @@
 
 		<header class="entry-header">
 
-			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a class="format-link-title" href="' . hybrid_get_the_post_format_url() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
-
+			<?php tamatebako_entry_title(); ?>
 			<?php edit_post_link(); ?>
 
 		</header><!-- .entry-header -->
 
 		<?php if ( is_singular() ){ ?>
-			<div <?php hybrid_attr( 'entry-content' ); ?>>
+			<div class="entry-content">
 				<?php the_content(); ?>
 				<?php wp_link_pages(); ?>
 			</div><!-- .entry-content -->

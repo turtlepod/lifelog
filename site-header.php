@@ -1,4 +1,4 @@
-<header <?php hybrid_attr( 'header' ); ?>>
+<header role="banner" id="header">
 
 		<?php if ( get_header_image() ) { ?>
 			<div class="header-image">
@@ -11,8 +11,12 @@
 
 		<div id="branding">
 
-			<?php hybrid_site_title(); ?>
-			<?php hybrid_site_description(); ?>
+			<?php if( is_front_page() ){ ?>
+				<h1 id="site-title"><a rel="home" href="<?php echo esc_url( user_trailingslashit( home_url() ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+			<?php } else { ?>
+				<p id="site-title"><a rel="home" href="<?php echo esc_url( user_trailingslashit( home_url() ) ); ?>"><?php bloginfo( 'name' ); ?></a></p>
+			<?php } ?>
+			<p id="site-description"><?php bloginfo( 'description' ); ?></p>
 
 		</div><!-- #branding -->
 

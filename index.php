@@ -8,7 +8,7 @@
 
 	<?php get_template_part( 'site-header' ); ?>
 
-	<?php hybrid_get_menu( 'primary' ); ?>
+	<?php get_template_part( 'menu/primary' ); ?>
 
 	<div id="main">
 
@@ -16,7 +16,7 @@
 
 			<div class="main-wrap">
 
-				<main <?php hybrid_attr( 'content' ); ?>>
+				<main class="content" id="content">
 
 					<?php if ( have_posts() ){ /* Posts Found */ ?>
 

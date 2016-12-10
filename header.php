@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html <?php language_attributes( 'html' ); ?>>
+<html <?php language_attributes( 'html' ); ?> class="no-js">
 
 <head>
 <?php wp_head(); // Hook required for scripts, styles, and other <head> items. ?>
 </head>
 
-<body <?php hybrid_attr( 'body' ); ?>>
-<?php echo tamatebako_check_js_script(); ?>
+<body <?php body_class(); ?>>

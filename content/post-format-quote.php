@@ -1,9 +1,9 @@
-<article <?php hybrid_attr( 'post' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="entry-wrap">
 
 		<div class="entry-published-wrap">
-			<time <?php hybrid_attr( 'entry-published' ); ?>>
+			<time class="entry-published">
 				<span class="day-large"><?php echo get_the_date( 'D' ); ?></span>
 				<span class="time-box">
 					<?php echo get_the_date( 'M' ); ?><br/>
@@ -17,7 +17,7 @@
 			<?php comments_popup_link( number_format_i18n( 0 ), number_format_i18n( 1 ), '%', 'comments-link', '' ); ?>
 		</div><!-- .comment-link-wrap -->
 
-		<div <?php hybrid_attr( 'entry-content' ); ?>>
+		<div class="entry-content">
 			<?php the_content(); ?>
 			<?php edit_post_link(); ?>
 		</div><!-- .entry-content -->
